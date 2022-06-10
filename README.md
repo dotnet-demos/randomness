@@ -1,8 +1,15 @@
-# Template project for .Net console demo applications with menu
+# .Net console sample for demonstrating capabilities of Random generation
+This demos the capabilities in .Net to generate random numbers, byte array (displayed as base64) etc...
+# How to run
+- Clone and run using Visual Studio
 
-# Specifications
+# Features showcased
+- Random class
+- RandomNumberGenerator class
 
-- .Net version - .Net 5
+# Tech stack
+
+- .Net version - .Net 6
 - Nugets referenced
 	- DotNet.Helpers
 	- easyconsolestd
@@ -13,6 +20,3 @@
 - Supported. Refer the [Program.cs](/src/Program.cs) file for more details
 - The options are injected as dependency to the [MenuService](/src/MenuService.cs then those are invoked based on selection. 
 
-# Other interesting console templates
-
-- [https://github.com/superwalnut/dotnet-console-app-template](https://github.com/superwalnut/dotnet-console-app-template)
