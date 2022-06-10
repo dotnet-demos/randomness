@@ -16,7 +16,7 @@ namespace ConsoleApp
         }
         async internal Task Display10RandomNumbers()
         {
-            logger.LogTrace($"{nameof(Display10RandomNumbers)} : Start");
+            logger.LogTrace($"{nameof(Display10RandomNumbers)} - Start");
             Random random = new Random();
             var randomNumbers = Enumerable.Range(0, 10)
                 .Select(i => random.Next())
@@ -27,13 +27,13 @@ namespace ConsoleApp
         }
         async internal Task Display10RandomNumbersWithSeed25()
         {
-            logger.LogTrace($"{nameof(Display10RandomNumbersWithSeed25)} : Start");
+            logger.LogTrace($"{nameof(Display10RandomNumbersWithSeed25)} - Start");
             Random random = new Random(25);
             var randomNumbers = Enumerable.Range(0, 10)
                 .Select(i => random.Next())
                 .ToArray();
             string randomNumberString = string.Join(",", randomNumbers);
-            logger.LogInformation($"Random numbers :{randomNumberString}");
+            logger.LogInformation($"{nameof(Display10RandomNumbersWithSeed25)} - Random numbers :{randomNumberString}");
             await Task.Delay(1);
         }
     }

@@ -14,6 +14,7 @@ namespace ConsoleApp
                     services.AddHostedService<MenuService>();
                     services.AddScoped<IDependency, Dependency>();
                     services.AddSingleton<RandomOption>();
+                    services.AddScoped<RandomNumberGeneratorOption>();
                     services.AddLogging();
                 })
             

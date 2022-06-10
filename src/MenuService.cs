@@ -8,16 +8,22 @@ namespace ConsoleApp
 {
     internal class MenuService : BackgroundService
     {
-        public RandomOption Option1 { get; init; }
-        public MenuService(RandomOption opt1)
+        RandomOption randomOption;
+        RandomNumberGeneratorOption randomNumberGeneratorOption;
+        public MenuService(RandomOption opt1, RandomNumberGeneratorOption randomNumberGeneratorOption)
         {
-            Option1 = opt1;
+            this.randomOption = opt1;
+            this.randomNumberGeneratorOption = randomNumberGeneratorOption;
         }
         protected async override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var menu = new Menu()
-                .Add("Randon class - Display 10 random numbers", async (token) => await Option1.Display10RandomNumbers())
-                .Add("Randon class - Display 10 random numbers with seed 25", async (token) => await Option1.Display10RandomNumbersWithSeed25())
+                .Add("Randon class - Display 10 random numbers", async (token) => await randomOption.Display10RandomNumbers())
+                .Add("Randon class - Display 10 random numbers with seed 25", async (token) => await randomOption.Display10RandomNumbersWithSeed25())
+                .Add("RandomNumberGenerator class - Display 1 random in Base64", async (token) => await randomNumberGeneratorOption.Display1RandomInBase64())
+                .Add("RandomNumberGenerator class - Display 10 random in Base64", async (token) => await randomNumberGeneratorOption.Display10RandomsInBase64())
+                .Add("RandomNumberGenerator class - Display 1 random using AesCryptoServiceProvider in Base64 (Exception)", async (token) => await randomNumberGeneratorOption.Display1RandomUsingAesCryptoServiceProviderInBase64())
+
                 .AddSync("Exit", () => Environment.Exit(0));
             await menu.Display(CancellationToken.None);
             await base.StartAsync(stoppingToken);
