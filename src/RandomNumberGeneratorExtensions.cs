@@ -4,9 +4,9 @@ namespace ConsoleApp
 {
     static class RandomNumberGeneratorExtensions
     {
-        public static string GetBase64Extended(this RandomNumberGenerator rng)
+        public static string GetBase64Extended(this RandomNumberGenerator rng,int byteSize)
         {
-            var buf = new byte[5];
+            var buf = new byte[byteSize];
             rng.GetBytes(buf);
             return Convert.ToBase64String(buf);
         }
